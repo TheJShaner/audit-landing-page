@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homepage Visibility Audit for Local Businesses | JShaner Ventures</title>
+    <meta name="description"
+        content="Get a fast homepage visibility audit showing the technical, search, and trust signals affecting your local business in Google search and maps." />
+
+    <meta property="og:title" content="Homepage Visibility Audit for Local Businesses | JShaner Ventures" />
+    <meta property="og:description"
+        content="Find the hidden technical and trust issues hurting your local search visibility." />
+    <meta property="og:type" content="website" />
+
+    <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "JShaner Ventures",
+    "url": "https://jshaner-ventures.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Scranton",
+      "addressRegion": "PA",
+      "addressCountry": "US"
+    }
+  }
+  </script>
+
+    <style>
+        :root {
+            --bg: #0b1020;
+            --panel: #121933;
+            --text: #f5f7ff;
+            --muted: #b8c1e0;
+            --accent: #6ea8fe;
+            --accent-2: #8ef0c9;
+            --danger: #ff7a7a;
+            --warning: #ffd36e;
+            --ok: #8ef0c9;
+            --border: rgba(255, 255, 255, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: linear-gradient(180deg, #0b1020 0%, #111731 100%);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: min(1100px, 92%);
+            margin: 0 auto;
+        }
+
+        .hero {
+            padding: 88px 0 56px;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            padding: 8px 12px;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            color: var(--accent-2);
+            background: rgba(255, 255, 255, 0.03);
+            font-size: 14px;
+            margin-bottom: 18px;
+        }
+
+        h1 {
+            font-size: clamp(2.2rem, 4vw, 4.3rem);
+            line-height: 1.05;
+            margin: 0 0 18px;
+            letter-spacing: -0.03em;
+        }
+
+        .subheadline {
+            font-size: 1.1rem;
+            color: var(--muted);
+            max-width: 60ch;
+            margin-bottom: 28px;
+        }
+
+        .cta-row {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 22px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: 0.2s ease;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #08101f;
+        }
+
+        .btn-secondary {
+            border: 1px solid var(--border);
+            color: var(--text);
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .microcopy {
+            margin-top: 12px;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .hero-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border);
+            border-radius: 22px;
+            padding: 24px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+        }
+
+        .score-card {
+            display: grid;
+            gap: 14px;
+        }
+
+        .score-line {
+            display: flex;
+            justify-content: space-between;
+            gap: 18px;
+            padding: 12px 14px;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+        }
+
+        .badge {
+            padding: 6px 10px;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        .ok {
+            background: rgba(142, 240, 201, 0.12);
+            color: var(--ok);
+        }
+
+        .warn {
+            background: rgba(255, 211, 110, 0.12);
+            color: var(--warning);
+        }
+
+        .bad {
+            background: rgba(255, 122, 122, 0.12);
+            color: var(--danger);
+        }
+
+        section {
+            padding: 34px 0;
+        }
+
+        h2 {
+            font-size: clamp(1.6rem, 2.4vw, 2.5rem);
+            margin: 0 0 14px;
+            letter-spacing: -0.02em;
+        }
+
+        .section-intro {
+            color: var(--muted);
+            max-width: 70ch;
+            margin-bottom: 26px;
+        }
+
+        .three-col,
+        .audience-grid,
+        .deliverables-grid {
+            display: grid;
+            gap: 18px;
+        }
+
+        .three-col {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .audience-grid {
+            grid-template-columns: repeat(5, 1fr);
+        }
+
+        .deliverables-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 22px;
+        }
+
+        .card h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        ul {
+            padding-left: 20px;
+            margin: 12px 0 0;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .step-number {
+            font-size: 0.9rem;
+            color: var(--accent-2);
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        .final-cta {
+            padding: 54px 0 88px;
+        }
+
+        .final-cta .card {
+            text-align: center;
+            padding: 34px;
+        }
+
+        .footer-note {
+            color: var(--muted);
+            font-size: 0.95rem;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 900px) {
+
+            .hero-grid,
+            .three-col,
+            .steps,
+            .deliverables-grid,
+            .audience-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding-top: 64px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="hero">
+        <div class="container hero-grid">
+            <div>
+                <div class="eyebrow">JShaner Ventures • Local Search Readiness</div>
+                <h1>Is Your Homepage Secretly Turning Away Local Customers?</h1>
+                <p class="subheadline">
+                    Our Homepage Visibility Audit scans your site for the exact technical, search, and trust
+                    signals Google looks for before recommending your business to local customers.
+                </p>
+                <div class="cta-row">
+                    <a class="btn btn-primary" href="#cta">Get My Free Homepage Scorecard</a>
+                    <a class="btn btn-secondary" href="#how-it-works">See How It Works</a>
+                </div>
+                <div class="microcopy">Usually delivered within 24 hours.</div>
+            </div>
+
+            <div class="hero-card">
+                <div class="score-card">
+                    <div class="score-line">
+                        <span>Site Health</span>
+                        <span class="badge ok">Pass</span>
+                    </div>
+                    <div class="score-line">
+                        <span>Search Visibility</span>
+                        <span class="badge warn">Needs Work</span>
+                    </div>
+                    <div class="score-line">
+                        <span>Trust Signals</span>
+                        <span class="badge bad">Missing Key Items</span>
+                    </div>
+                    <div class="score-line">
+                        <span>Top Issues Found</span>
+                        <span>Schema, Meta, Address</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section>
+            <div class="container">
+                <h2>We Check the 3 Signals Search Engines Need Before Recommending Your Business</h2>
+                <p class="section-intro">
+                    This is a fast homepage-first audit built for local businesses. We focus on the issues
+                    most likely to affect search visibility, trust, and conversions.
+                </p>
+
+                <div class="three-col">
+                    <div class="card">
+                        <h3>Technical Site Health</h3>
+                        <p>
+                            We check whether your homepage loads correctly, uses a secure HTTPS connection, and
+                            works properly on mobile devices where most local searches happen.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <h3>Search Visibility</h3>
+                        <p>
+                            We scan your title tags, meta descriptions, headings, and LocalBusiness schema to
+                            make sure search engines can clearly understand what your business does and where you
+                            operate.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <h3>Trust Signals</h3>
+                        <p>
+                            Search engines look for clear contact information and business details before
+                            recommending local services. We verify that your phone, address, and trust signals
+                            are visible and readable.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h2>Common Homepage Problems We See Every Day</h2>
+                <div class="card">
+                    <ul>
+                        <li>Missing LocalBusiness schema that helps Google Maps recommend your business</li>
+                        <li>Phone numbers that search engines cannot easily read</li>
+                        <li>Missing or weak meta descriptions in search results</li>
+                        <li>No clear service area signals for local searches</li>
+                        <li>Hidden indexing problems that block search visibility</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h2>Local Search Is About Trust, Not Traffic</h2>
+                <p class="section-intro">
+                    When people search for a local service, they usually want to call a business or visit a
+                    location immediately. Search engines will not recommend a business unless the website
+                    clearly proves it is legitimate, safe, and relevant to the local area.
+                </p>
+                <p class="section-intro">
+                    Missing technical signals or unclear contact information can quietly reduce how often your
+                    business appears in search results.
+                </p>
+            </div>
+        </section>
+
+        <section id="how-it-works">
+            <div class="container">
+                <h2>Your Homepage Visibility Scorecard in 3 Steps</h2>
+                <div class="steps">
+                    <div class="card">
+                        <div class="step-number">Step 1</div>
+                        <h3>Submit Your Details</h3>
+                        <p>Give us your business name, homepage URL, and your main phone number.</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="step-number">Step 2</div>
+                        <h3>We Run the Scan</h3>
+                        <p>We run a rule-based scan that views your homepage the same way search engine crawlers do.</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="step-number">Step 3</div>
+                        <h3>Get Your Scorecard</h3>
+                        <p>You receive a one-page summary showing your Site Health, Visibility, and Trust signals.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h2>Who This Is For</h2>
+                <p class="section-intro">
+                    Built for local service businesses where trust and search visibility matter.
+                </p>
+
+                <div class="audience-grid">
+                    <div class="card">
+                        <h3>Dentists</h3>
+                    </div>
+                    <div class="card">
+                        <h3>Attorneys</h3>
+                    </div>
+                    <div class="card">
+                        <h3>Insurance Agencies</h3>
+                    </div>
+                    <div class="card">
+                        <h3>Contractors</h3>
+                    </div>
+                    <div class="card">
+                        <h3>Local Service Providers</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h2>What You Receive</h2>
+                <div class="deliverables-grid">
+                    <div class="card">
+                        <h3>Simple 1-Page Scorecard</h3>
+                        <p>Your homepage score out of 100, with a clear red/yellow/green style summary.</p>
+                    </div>
+
+                    <div class="card">
+                        <h3>Top 3 Issues to Fix First</h3>
+                        <p>Plain-English explanations of the most important technical and trust issues affecting your
+                            homepage.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <section class="final-cta" id="cta">
+        <div class="container">
+            <div class="card">
+                <h2>Find Out What Your Homepage Is Really Telling Search Engines</h2>
+                <p class="section-intro" style="margin: 0 auto 18px;">
+                    Request your homepage visibility scorecard and see exactly what may be holding your business
+                    back from local search results.
+                </p>
+                <a class="btn btn-primary"
+                    href="mailto:jonathan@jshaner.ventures?subject=Homepage%20Visibility%20Audit%20Request">Request My
+                    Scorecard</a>
+                <div class="footer-note">Version 1 page for JShaner Ventures. Easy to expand later.</div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
