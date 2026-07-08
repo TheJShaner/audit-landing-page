@@ -17,8 +17,8 @@
   {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "name": "JShaner Ventures LLC",
-    "url": "https://jshaner-ventures.com",
+    "name": "JShaner Ventures",
+    "url": "https://jshaner.ventures",
     "telephone": "570-243-1296",
     "address": {
       "@type": "PostalAddress",
@@ -32,15 +32,15 @@
 
     <style>
         :root {
-            --bg: #0b1020;
-            --panel: #121933;
+            --bg: #0D1B2A;
+            --panel: #102437;
             --text: #f5f7ff;
             --muted: #b8c1e0;
-            --accent: #6ea8fe;
-            --accent-2: #8ef0c9;
+            --accent: #38BDF8;
+            --accent-2: #38BDF8;
             --danger: #ff7a7a;
             --warning: #ffd36e;
-            --ok: #8ef0c9;
+            --ok: #38BDF8;
             --border: rgba(255, 255, 255, 0.08);
         }
 
@@ -51,7 +51,7 @@
         body {
             margin: 0;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background: linear-gradient(180deg, #0b1020 0%, #111731 100%);
+            background: linear-gradient(180deg, #0D1B2A 0%, #102437 100%);
             color: var(--text);
             line-height: 1.6;
         }
@@ -258,6 +258,60 @@
             margin-top: 10px;
         }
 
+        .audit-form {
+            display: grid;
+            gap: 16px;
+            max-width: 640px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+        }
+
+        .field {
+            display: grid;
+            gap: 7px;
+        }
+
+        .field label {
+            color: var(--accent);
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        .field input {
+            width: 100%;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.06);
+            color: var(--text);
+            font: inherit;
+            min-height: 48px;
+            padding: 12px 14px;
+        }
+
+        .field input::placeholder {
+            color: rgba(245, 247, 255, 0.46);
+        }
+
+        .field input:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.18);
+            outline: none;
+        }
+
+        .audit-form .btn {
+            border: 0;
+            cursor: pointer;
+            justify-self: center;
+        }
+
         @media (max-width: 900px) {
 
             .hero-grid,
@@ -270,6 +324,10 @@
 
             .hero {
                 padding-top: 64px;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -463,10 +521,33 @@
                     Request your homepage visibility scorecard and see exactly what may be holding your business
                     back from local search results.
                 </p>
-                <a class="btn btn-primary"
-                    href="mailto:jonathan@jshaner.ventures?subject=Homepage%20Visibility%20Audit%20Request">Request My
-                    Scorecard</a>
-                <div class="footer-note">JShaner Ventures LLC | Muncy, PA 17756 | 570-243-1296</div>
+                <form class="audit-form" action="https://formspree.io/f/mzdkgbpq" method="POST">
+                    <input type="hidden" name="engagement" value="Homepage Visibility Audit" />
+                    <input type="hidden" name="_subject" value="Homepage Visibility Audit Request" />
+
+                    <div class="form-grid">
+                        <div class="field">
+                            <label for="business-name">Business Name</label>
+                            <input id="business-name" name="business_name" type="text" autocomplete="organization"
+                                placeholder="Your business" required />
+                        </div>
+
+                        <div class="field">
+                            <label for="website-url">Website URL</label>
+                            <input id="website-url" name="website" type="url" autocomplete="url"
+                                placeholder="https://example.com" required />
+                        </div>
+
+                        <div class="field">
+                            <label for="phone">Phone</label>
+                            <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="(570) 243-1296"
+                                required />
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary" type="submit">Request My Scorecard</button>
+                </form>
+                <div class="footer-note">JShaner Ventures | Muncy, PA 17756 | 570-243-1296</div>
             </div>
         </div>
     </section>
